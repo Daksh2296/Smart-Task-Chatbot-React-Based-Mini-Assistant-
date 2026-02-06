@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>React Basics</title>
+    <style>
+      .topp{
+        color: white;
+        background-color: rgb(25, 135, 84);
+        padding: 10px 15px;
+        font-size: 15px;
+        border-radius: 10px;
+        cursor: pointer;
+      }
+      .off{
+        color: white;
+        background-color: rgb(209, 45, 45);
+        padding: 10px 15px;
+        font-size: 15px;
+        border-radius: 10px;
+        cursor: pointer;
+      }
+      .main{
+        display: flex;
+        justify-content: center;
+      }
+      .top{
+        display: flex;
+        justify-content: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="js-container"></div>
+
+    <script src="https://unpkg.com/supersimpledev/react.js"></script>
+    <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+
+
+    <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+    <script type="text/babel">
+
+   function Top(){
+    const [value,setValue]=React.useState(true);
+    function setButtonValue(event){
+      setValue(value ? false : true)
+    }
+    
+    return(
+      <div
+      
+      >
+        <button
+        className={value ? 'topp' : 'off'}
+        onClick={setButtonValue}
+        >{value ?'ON' : 'OFF'}</button>
+      </div>
+    )  
+
+    
+  }
+
+function App() {
+
+  return (
+    <div
+    className="main"
+    >
+      <Top/>
+
+    </div>
+  );
+}
+
+const container = document.querySelector('.js-container');
+ReactDOM.createRoot(container).render(<App />);
+
+    </script>
+  </body>
+</html>
